@@ -81,8 +81,7 @@ ssection:AddToggle({
 		print(Value)
 	end    
 })
-wait(0.5)local ba=Instance.new("ScreenGui")
-local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+
 local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
 ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
 ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
