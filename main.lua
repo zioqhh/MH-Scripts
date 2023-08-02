@@ -88,4 +88,3 @@ ssection:AddToggle({
 	end    
 })
 
-game:service'Players'.LocalPlayer.Idled:connect(function())
