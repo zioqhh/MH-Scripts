@@ -23,6 +23,12 @@ OrionLib:MakeNotification({
 	Time = 3
 })
 
+OrionLib:MakeNotification({
+	Name = "AFK",
+	Content = "Anti AFK Has Been Enabled!",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
 
 local Tab = Window:MakeTab({
 	Name = "Player",
