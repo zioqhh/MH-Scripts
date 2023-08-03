@@ -1,7 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 
--G.colour = Color3.fromRGB(255, 0, 0)
+_G.colour = Color3.fromRGB(255, 0, 0)
 
 local Window = OrionLib:MakeWindow({Name = "MH Scripts", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
