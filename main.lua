@@ -80,8 +80,11 @@ local ssection = stab:AddSection({
 	Name = "AFK"
 })
 t = 'Off'
-game.MouseButton1Click:Connect(function()
-  print('clicked')
+function afk(t)
+  if t == 'On' then
+    game.MouseButton1Click:Connect(function()
+    print('clicked')
+  else
 end)
 
 ssection:AddToggle({
