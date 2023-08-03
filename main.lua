@@ -80,7 +80,7 @@ local ssection = stab:AddSection({
 	Name = "Farm"
 })
 t = 'Off'
-function afk(t)
+function farm(t)
   if t == 'On' then
     game.MouseButton1Click:Connect(function()
     print('clicked')
@@ -91,8 +91,13 @@ end)
 ssection:AddToggle({
 	Name = "On/Off",
 	Default = 'Off',
-	Callback = function(t)
-	  print()
+	if t == 'On' then
+	  t == 'Off'
+	else
+	  t = 'On'
+        
+	Callback = function()
+	  farm(Callback)
 	end    
 })
 
