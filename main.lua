@@ -84,7 +84,7 @@ function autoreb()
         [1] = 26
       }
       game:GetService("ReplicatedStorage").Rebirth:InvokeServer(unpack(args))
-      wait (3)
+      wait (.1)
      end
     end
 
