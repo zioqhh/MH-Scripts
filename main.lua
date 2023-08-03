@@ -79,25 +79,9 @@ local stab = Window:MakeTab({
 local ssection = stab:AddSection({
 	Name = "Farm"
 })
-t = 'Off'
-function farm(t)
-  if t == 'On' then
-    game.MouseButton1Click:Connect(function()
-    print('clicked')
-  else
-    end
-end)
 
 ssection:AddToggle({
 	Name = "On/Off",
 	Default = 'Off',
-	if t == 'On' then
-	  t == 'Off'
-	else
-	  t = 'On'
-        
-	Callback = function()
-	  farm(Callback)
-	end    
 })
 
