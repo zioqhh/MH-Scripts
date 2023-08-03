@@ -1,82 +1,149 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 
+
+
 local Window = OrionLib:MakeWindow({Name = "MH Scripts", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
---[[
-Name = <string> - The name of the UI.
-HidePremium = <bool> - Whether or not the user details shows Premium status or not.
-SaveConfig = <bool> - Toggles the config saving in the UI.
-ConfigFolder = <string> - The name of the folder where the configs are saved.
-IntroEnabled = <bool> - Whether or not to show the intro animation.
-IntroText = <string> - Text to show in the intro animation.
-IntroIcon = <string> - URL to the image you want to use in the intro animation.
-Icon = <string> - URL to the image you want displayed on the window.
-CloseCallback = <function> - Function to execute when the window is closed.
-]]
 
-afk2 = false
+-- Tabs
 
-OrionLib:MakeNotification({
-	Name = "MH Scripts",
-	Content = "Loaded Script v1.0.0-beta",
-	Image = "rbxassetid://4483345998",
-	Time = 3
+local farmtab = Window:MakeTab({
+	Name = "Farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-OrionLib:MakeNotification({
-	Name = "AFK",
-	Content = "Anti AFK Has Been Enabled!",
-	Image = "rbxassetid://4483345998",
-	Time = 3
-})
-
-local Tab = Window:MakeTab({
+local playertab = Window:MakeTab({
 	Name = "Player",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local Section = Tab:AddSection({
-	Name = "Movement"
+
+-- Values
+
+_G.auto = false
+_G.equiprate = 50
+_G.autoopen = false
+_G.autodrop = false
+
+-- Functions
+
+function autodrop()
+	while _G.autodrop == true do
+		game:GetService("ReplicatedStorage").RemoteDrop:FireServer()
+		wait (.000000000000000000001)
+	 end
+	end
+
+function autoopen()
+		while _G.autoopen == true do
+			local args = {
+				[1] = "Regular",
+				[2] = "Unreal"
+			}
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+			local args = {
+				[1] = "Unreal"
+			}
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+			wait (.000000000000000000001)
+		 end
+		end
+
+function auto()
+    while _G.auto == true do
+      wait (2)
+      local args = {
+        [1] = "Load",
+        [2] = "Layout1"
+      }
+      game:GetService("ReplicatedStorage").Layouts:InvokeServer(unpack(args))
+      wait (_G.equiprate )
+      local args = {
+        [1] = 26
+      }
+      game:GetService("ReplicatedStorage").Rebirth:InvokeServer(unpack(args))
+     end
+    end
+
+-- Toggles
+
+farmtab:AddToggle({
+	Name = "Auto Layout 1",
+	Default = false,
+	Callback = function(Value)
+	    _G.auto = Value
+		auto()
+	end    
+})
+
+farmtab:AddToggle({
+	Name = "Auto Drop Remote Mines",
+	Default = false,
+	Callback = function(Value)
+	    _G.autodrop = Value
+		autodrop()
+	end    
+})
+
+farmtab:AddToggle({
+	Name = "Auto Open Boxes",
+	Default = false,
+	Callback = function(Value)
+	    _G.autoopen = Value
+		autoopen()
+	end    
 })
 
 
---[[
-Name = <string> - The name of the section.
-]]
+-- dropdowns 
 
-Tab:AddSlider({
-    Name = "Walkspeed",
-    Min = 16,
-    Max = 500,
-    Default = 16,
-    Color = Color3.fromRGB(255,255,255),
-    Increment = 1,
-    ValueName = "WS",
-    Callback = function(Value)
-     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-    end    
-   })
+-- Sliders 
 
-Tab:AddSlider({
-    Name = "Jump",
-    Min = 30,
-    Max = 500,
-    Default = 30,
-    Color = Color3.fromRGB(255,255,255),
-    Increment = 1,
-    ValueName = "JS",
-    Callback = function(Value)
-     game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-    end    
-   })
-   
-local stab = Window:MakeTab({
-	Name = "AutoFarm",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+farmtab:AddSlider({
+	Name = "Timer",
+	Min = 50,
+	Max = 500,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Seconds",
+	Callback = function(Value)
+		_G.equiprate = Value
+	end    
 })
 
-local ssection = stab:AddSection({
-	Name = "Farm"
+playertab:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Seconds",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
 })
 
+
+playertab:AddSlider({
+	Name = "Jump Power",
+	Min = 30,
+	Max = 500,
+	Default = 30,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Seconds",
+	Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
+
+
+-- Cleanup
+
+OrionLib:Init()
+
+
+-- simplespy loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
