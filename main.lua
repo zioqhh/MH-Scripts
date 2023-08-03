@@ -80,8 +80,6 @@ local ssection = stab:AddSection({
 	Name = "AFK"
 })
 t = 'Off'
-local Foo = require(game.ReplicatedStorage.Foo) -- put the path to your ModuleScript
-local button = script.Parent
 game.MouseButton1Click:Connect(function()
   print('clicked')
 end)
