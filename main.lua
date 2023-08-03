@@ -88,7 +88,7 @@ ssection:AddToggle({
 	Name = "On/Off",
 	Default = 'Off',
 	Callback = function(t)
-		
+		print()
 	end    
 })
 
