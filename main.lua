@@ -85,13 +85,14 @@ function afk(t)
     game.MouseButton1Click:Connect(function()
     print('clicked')
   else
+    end
 end)
 
 ssection:AddToggle({
 	Name = "On/Off",
 	Default = 'Off',
 	Callback = function(t)
-		print()
+	  print()
 	end    
 })
 
