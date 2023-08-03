@@ -21,6 +21,14 @@ local playertab = Window:MakeTab({
 
 -- Values
 
+farmtab:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
 _G.auto = false
 _G.equiprate = 50
 _G.autoopen = false
