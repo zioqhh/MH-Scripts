@@ -36,6 +36,7 @@ local othertab = Window:MakeTab({
 
 -- Values
 
+_G.autoreb = false
 _G.auto = false
 _G.equiprate = 50
 _G.autoopen = false
@@ -74,10 +75,17 @@ function auto()
       }
       game:GetService("ReplicatedStorage").Layouts:InvokeServer(unpack(args))
       wait (_G.equiprate )
+     end
+    end
+
+function autoreb()
+    while _G.autoreb == true do
+      wait (2)
       local args = {
         [1] = 26
       }
       game:GetService("ReplicatedStorage").Rebirth:InvokeServer(unpack(args))
+      wait (3)
      end
     end
 
@@ -96,8 +104,8 @@ farmtab:AddToggle({
 	Name = "Auto Rebirth",
 	Default = false,
 	Callback = function(Value)
-	    _G.auto = Value
-		auto()
+	    _G.autoreb = Value
+		autoreb()
 	end    
 })
 
