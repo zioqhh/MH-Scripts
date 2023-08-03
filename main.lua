@@ -80,7 +80,6 @@ function auto()
 
 function autoreb()
     while _G.autoreb == true do
-      wait (2)
       local args = {
         [1] = 26
       }
