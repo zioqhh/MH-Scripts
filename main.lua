@@ -13,6 +13,17 @@ local farmtab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local playertab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local othertab = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
 -- Values
 
