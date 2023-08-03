@@ -77,7 +77,7 @@ local stab = Window:MakeTab({
 })
 
 local ssection = stab:AddSection({
-	Name = "AFK"
+	Name = "Farm"
 })
 t = 'Off'
 function afk(t)
