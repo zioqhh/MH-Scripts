@@ -59,9 +59,9 @@ Tab:AddSlider({
 
 Tab:AddSlider({
     Name = "Jump",
-    Min = 16,
+    Min = 30,
     Max = 500,
-    Default = 16,
+    Default = 30,
     Color = Color3.fromRGB(255,255,255),
     Increment = 1,
     ValueName = "JS",
@@ -79,12 +79,18 @@ local stab = Window:MakeTab({
 local ssection = stab:AddSection({
 	Name = "AFK"
 })
+t = 'Off'
+local Foo = require(game.ReplicatedStorage.Foo) -- put the path to your ModuleScript
+local button = script.Parent
+game.MouseButton1Click:Connect(function()
+  print('clicked')
+end)
 
 ssection:AddToggle({
 	Name = "On/Off",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
+	Default = 'Off',
+	Callback = function(t)
+		
 	end    
 })
 
