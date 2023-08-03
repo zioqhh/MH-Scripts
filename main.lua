@@ -1,7 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 
-
+-G.colour = Color3.fromRGB(255, 0, 0)
 
 local Window = OrionLib:MakeWindow({Name = "MH Scripts", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
@@ -13,21 +13,8 @@ local farmtab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local playertab = Window:MakeTab({
-	Name = "Player",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
 
 -- Values
-
-farmtab:AddColorpicker({
-	Name = "Colorpicker",
-	Default = Color3.fromRGB(255, 0, 0),
-	Callback = function(Value)
-		print(Value)
-	end	  
-})
 
 _G.auto = false
 _G.equiprate = 50
@@ -103,6 +90,13 @@ farmtab:AddToggle({
 	end    
 })
 
+othertab:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		_G.colour = Value
+	end	  
+})
 
 -- dropdowns 
 
@@ -147,6 +141,7 @@ playertab:AddSlider({
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end    
 })
+
 
 
 -- Cleanup
