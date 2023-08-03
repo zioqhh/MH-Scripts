@@ -93,6 +93,15 @@ farmtab:AddToggle({
 })
 
 farmtab:AddToggle({
+	Name = "Auto Rebirth",
+	Default = false,
+	Callback = function(Value)
+	    _G.auto = Value
+		auto()
+	end    
+})
+
+farmtab:AddToggle({
 	Name = "Auto Drop Remote Mines",
 	Default = false,
 	Callback = function(Value)
