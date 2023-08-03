@@ -80,8 +80,3 @@ local ssection = stab:AddSection({
 	Name = "Farm"
 })
 
-ssection:AddToggle({
-	Name = "On/Off",
-	Default = 'Off',
-})
-
