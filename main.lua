@@ -8,8 +8,8 @@ local Window = OrionLib:MakeWindow({Name = "MH Scripts", HidePremium = false, Sa
 -- Notos
 
 OrionLib:MakeNotification({
-	Name = "Join The Discord!",
-	Content = ".gg/",
+	Name = "Support",
+	Content = "If you need help join the discord! .gg/",
 	Image = "rbxassetid://4483345998",
 	Time = 60
 })
