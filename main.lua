@@ -5,6 +5,15 @@ _G.colour = Color3.fromRGB(255, 0, 0)
 
 local Window = OrionLib:MakeWindow({Name = "MH Scripts", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+-- Notos
+
+OrionLib:MakeNotification({
+	Name = "Join The Discord!",
+	Content = ".gg/",
+	Image = "rbxassetid://4483345998",
+	Time = 60
+})
+
 -- Tabs
 
 local farmtab = Window:MakeTab({
