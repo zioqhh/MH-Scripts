@@ -76,7 +76,7 @@ end
 
 -- Values
 
-_G.tpcratez = true
+_G.tpcratez = false
 _G.autoreb = false
 _G.auto = false
 _G.equiprate1 = 1
@@ -105,9 +105,12 @@ function autoopen()
 				[1] = "Unreal"
 			}
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
-			wait (.000000000000000000001)
 			local args = {
 				[1] = "Inferno"
+			}
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+			local args = {
+				[1] = "Luxury"
 			}
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
 			wait (.000000000000000000001)
