@@ -136,7 +136,7 @@ farmtab:AddToggle({
 	Name = "Auto Layout 2",
 	Default = false,
 	Callback = function(Value)
-	    _G.auto = Value
+	    _G.auto2 = Value
 		auto2()
 	end    
 })
@@ -145,7 +145,7 @@ farmtab:AddToggle({
 	Name = "Auto Layout 3",
 	Default = false,
 	Callback = function(Value)
-	    _G.auto = Value
+	    _G.auto3 = Value
 		auto3()
 	end    
 })
