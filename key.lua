@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Key", HidePremium = false,IntroTex = "Loading...",SaveConfig = false, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({IntroIcon = "https://static.wikia.nocookie.net/the-miners-haven-project/images/2/20/MHRezLogo.png/revision/latest?cb=20191110062821", Name = "Get They Key At .gg/", HidePremium = false,IntroText = "Loading...",IntroIcon = "", SaveConfig = false, ConfigFolder = "OrionTest"})
 
 --[[
 Name = <string> - The name of the UI.
@@ -14,22 +14,27 @@ Icon = <string> - URL to the image you want displayed on the window.
 CloseCallback = <function> - Function to execute when the window is closed.
 ]]
 
-local Section = Tab:AddSection({
-	Name = "Get Key"
+local Tab = Window:MakeTab({
+	Name = "Get Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
+
 _G.key = 'iusfyef87ewasdhua7'
 _G.keycheck = ""
 function key()
   if _G.keycheck == _G.key then
      OrionLib:Destroy()
      loadstring(game:HttpGet(('https://raw.githubusercontent.com/jeeuejje/MH-Scripts/main/main.lua')))()
-  elseif _G.keycheck == "" then
-     OrionLib:MakeNotification({
-	   Name = "Title!",
-	   Content = "Notification content... what will it say??",
-	   Image = "rbxassetid://4483345998",
-	   Time = 5
-})
+  else
+    OrionLib:MakeNotification({
+        Name = "Wrong Key!",
+        Content = "Get The Right Key At .gg/",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+        
+  end
   end
 
 Tab:AddTextbox({
@@ -41,5 +46,4 @@ Tab:AddTextbox({
 		key()
 	end	  
 })
-
 OrionLib:Init()
