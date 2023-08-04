@@ -38,7 +38,9 @@ local othertab = Window:MakeTab({
 
 _G.autoreb = false
 _G.auto = false
-_G.equiprate = 50
+_G.equiprate1 = 20
+_G.equiprate2 = 20
+_G.equiprate3 = 20
 _G.autoopen = false
 _G.autodrop = false
 
@@ -79,9 +81,35 @@ function auto()
         [2] = "Layout1"
       }
       game:GetService("ReplicatedStorage").Layouts:InvokeServer(unpack(args))
-      wait (_G.equiprate )
+      wait (_G.equiprate1)
      end
     end
+
+function auto2()
+    while _G.auto2 == true do
+      wait (2)
+      local args = {
+        [1] = "Load",
+        [2] = "Layout2"
+      }
+      game:GetService("ReplicatedStorage").Layouts:InvokeServer(unpack(args))
+      wait (_G.equiprate2)
+     end
+    end
+
+
+function auto3()
+    while _G.auto3 == true do
+      wait (2)
+      local args = {
+        [1] = "Load",
+        [2] = "Layout3"
+      }
+      game:GetService("ReplicatedStorage").Layouts:InvokeServer(unpack(args))
+      wait (_G.equiprate3)
+     end
+    end
+
 
 function autoreb()
     while _G.autoreb == true do
@@ -101,6 +129,24 @@ farmtab:AddToggle({
 	Callback = function(Value)
 	    _G.auto = Value
 		auto()
+	end    
+})
+
+farmtab:AddToggle({
+	Name = "Auto Layout 2",
+	Default = false,
+	Callback = function(Value)
+	    _G.auto = Value
+		auto2()
+	end    
+})
+
+farmtab:AddToggle({
+	Name = "Auto Layout 3",
+	Default = false,
+	Callback = function(Value)
+	    _G.auto = Value
+		auto3()
 	end    
 })
 
@@ -144,15 +190,15 @@ othertab:AddColorpicker({
 -- Sliders 
 
 farmtab:AddSlider({
-	Name = "Timer",
-	Min = 50,
+	Name = "Layout 1 Timer",
+	Min = 20,
 	Max = 500,
-	Default = 50,
+	Default = 20,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Seconds",
 	Callback = function(Value)
-		_G.equiprate = Value
+		_G.equiprate1 = Value
 	end    
 })
 
@@ -169,6 +215,31 @@ playertab:AddSlider({
 	end    
 })
 
+farmtab:AddSlider({
+	Name = "Layout 2 Timer",
+	Min = 20,
+	Max = 500,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Seconds",
+	Callback = function(Value)
+		_G.equiprate2 = Value
+	end    
+})
+
+farmtab:AddSlider({
+	Name = "Layout 3 Timer",
+	Min = 20,
+	Max = 500,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Seconds",
+	Callback = function(Value)
+		_G.equiprate3 = Value
+	end    
+})
 
 playertab:AddSlider({
 	Name = "Jump Power",
