@@ -34,13 +34,54 @@ local othertab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+
+-- yea yea
+
+function CountBricks()
+    local c = 0
+      for i,v in pairs(workspace:GetChildren()) do
+        for x in string.gmatch(v.Name, "Crate") do
+          wait(0.2)
+              c = c + 1
+          end
+        end
+      return c
+      end
+
+_G.tpcratez = false
+  
+function spawn()
+  while _G.tpcratez == true do
+    NumberOfBoxes.Text = CountBricks()
+      if _G.tpcratez == true then
+        local children = game.Workspace:GetChildren()
+          for i =1, #children do
+            wait(0.1)
+              if children[i] ~= nil then
+                for x in string.gmatch(children[i].Name, "Crate") do
+             if children[i].ClassName == "Part" then
+               children[i].Anchored = true
+                 children[i].CanCollide = false
+                 children[i].CFrame = CFrame.new(game.Players.LocalPlayer.Character.Head.Position)
+    wait(0.3)
+      end
+end
+end
+end
+end
+end
+end
+
+-- end of yea yea
+
 -- Values
 
+_G.tpcratez = true
 _G.autoreb = false
 _G.auto = false
-_G.equiprate1 = 20
-_G.equiprate2 = 20
-_G.equiprate3 = 20
+_G.equiprate1 = 1
+_G.equiprate2 = 1
+_G.equiprate3 = 1
 _G.autoopen = false
 _G.autodrop = false
 
@@ -117,6 +158,7 @@ function autoreb()
         [1] = 26
       }
       game:GetService("ReplicatedStorage").Rebirth:InvokeServer(unpack(args))
+
       wait (.1)
      end
     end
@@ -169,6 +211,15 @@ farmtab:AddToggle({
 })
 
 farmtab:AddToggle({
+	Name = "Auto Farm Boxes ( Not Working )",
+	Default = false,
+	Callback = function(Value)
+	    _G.tpcratez = Value
+		spawn()
+	end    
+})
+
+farmtab:AddToggle({
 	Name = "Auto Open Boxes",
 	Default = false,
 	Callback = function(Value)
@@ -191,9 +242,9 @@ othertab:AddColorpicker({
 
 farmtab:AddSlider({
 	Name = "Layout 1 Timer",
-	Min = 20,
+	Min = 1,
 	Max = 500,
-	Default = 20,
+	Default = 1,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Seconds",
@@ -217,9 +268,9 @@ playertab:AddSlider({
 
 farmtab:AddSlider({
 	Name = "Layout 2 Timer",
-	Min = 20,
+	Min = 1,
 	Max = 500,
-	Default = 20,
+	Default = 1,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Seconds",
@@ -230,9 +281,9 @@ farmtab:AddSlider({
 
 farmtab:AddSlider({
 	Name = "Layout 3 Timer",
-	Min = 20,
+	Min = 1,
 	Max = 500,
-	Default = 20,
+	Default = 1,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Seconds",
@@ -257,7 +308,6 @@ playertab:AddSlider({
 
 
 -- Cleanup
-
 OrionLib:Init()
 
 
