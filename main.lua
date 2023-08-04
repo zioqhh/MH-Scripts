@@ -63,6 +63,11 @@ function autoopen()
 			}
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
 			wait (.000000000000000000001)
+			local args = {
+				[1] = "Inferno"
+			}
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+			wait (.000000000000000000001)
 		 end
 		end
 
