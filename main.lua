@@ -209,7 +209,7 @@ playertab:AddSlider({
 	Default = 16,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
-	ValueName = "Seconds",
+	ValueName = "Walk Speed",
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end    
@@ -248,7 +248,7 @@ playertab:AddSlider({
 	Default = 30,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
-	ValueName = "Seconds",
+	ValueName = "Jump Power",
 	Callback = function(Value)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end    
