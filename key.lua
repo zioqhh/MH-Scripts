@@ -20,7 +20,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-_G.key = 'iusfyef87ewasdhua7'
+_G.key = 'hgad76q873x6b73qqqndx83by23bx832re8nx2r87xn782trbc287tr238btx287bxtr2'
 _G.keycheck = ""
 function key()
   if _G.keycheck == _G.key then
