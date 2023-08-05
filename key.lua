@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({IntroIcon = "https://static.wikia.nocookie.net/the-miners-haven-project/images/2/20/MHRezLogo.png/revision/latest?cb=20191110062821", Name = "Get They Key At .gg/", HidePremium = false,IntroText = "Loading...",IntroIcon = "", SaveConfig = false, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Get They Key At .gg/", HidePremium = false,IntroText = "Loading...",IntroIcon = "", SaveConfig = false, ConfigFolder = "OrionTest"})
 
 --[[
 Name = <string> - The name of the UI.
