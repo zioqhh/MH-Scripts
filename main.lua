@@ -97,8 +97,7 @@ function autodrop()
 function autoopen()
 		while _G.autoopen == true do
 			local args = {
-				[1] = "Regular",
-				[2] = "Unreal"
+				[1] = "Regular"
 			}
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
 			local args = {
