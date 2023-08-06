@@ -113,6 +113,10 @@ function autoopen()
 				[1] = "Luxury"
 			}
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+			local args = {
+				[1] = "Spectral"
+			}
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
 			wait (.000000000000000000001)
 		 end
 		end
