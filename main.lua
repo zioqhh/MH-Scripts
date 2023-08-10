@@ -35,43 +35,30 @@ local othertab = Window:MakeTab({
 })
 
 
+
 -- yea yea
 
-function CountBricks()
-    local c = 0
-      for i,v in pairs(workspace:GetChildren()) do
-        for x in string.gmatch(v.Name, "Crate") do
-          wait(0.2)
-              c = c + 1
-          end
-        end
-      return c
-      end
-
 _G.tpcratez = false
-  
 function spawn()
-  while _G.tpcratez == true do
-    NumberOfBoxes.Text = CountBricks()
-      if _G.tpcratez == true then
-        local children = game.Workspace:GetChildren()
-          for i =1, #children do
-            wait(0.1)
-              if children[i] ~= nil then
-                for x in string.gmatch(children[i].Name, "Crate") do
-             if children[i].ClassName == "Part" then
-               children[i].Anchored = true
-                 children[i].CanCollide = false
-                 children[i].CFrame = CFrame.new(game.Players.LocalPlayer.Character.Head.Position)
-    wait(0.3)
-      end
-end
-end
-end
-end
-end
-end
-
+    
+    while _G.tpcratez == true do
+      local ogc = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+      for i,v in pairs(workspace.Boxes:GetChildren())do
+--these first two lines keep the player from tripping and falling                        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false) game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+                                                --tp character to the crate, v is the crate in this case
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                        wait(.025)
+                                                --fire touch event on crate
+                        firetouchinterest(v, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,.5,0)
+                        wait(.05)
+                    end
+game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false) game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = ogc * CFrame.new(0,2,0)
+                    game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false) game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+                    wait(15)
+                end
+                end
 -- end of yea yea
 
 -- Values
@@ -315,6 +302,6 @@ playertab:AddSlider({
 
 -- Cleanup
 OrionLib:Init()
-
+coroutine.wrap(PMVVV_fake_script)()
 
 -- simplespy loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
