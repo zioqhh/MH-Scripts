@@ -191,7 +191,7 @@ farmtab:AddToggle({
 })
 
 farmtab:AddToggle({
-	Name = "Auto Farm Boxes ( Not Working )",
+	Name = "Auto Farm Boxes",
 	Default = false,
 	Callback = function(Value)
 	    _G.tpcratez = Value
