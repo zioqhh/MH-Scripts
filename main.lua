@@ -3,7 +3,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 _G.colour = Color3.fromRGB(255, 0, 0)
 
-local Window = OrionLib:MakeWindow({Name = "Miner's Haven", IntroText = 'Success!', HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Miner's Haven V1.0.2", IntroText = 'Success!', HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 -- Notos
 
