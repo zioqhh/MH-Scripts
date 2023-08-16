@@ -83,26 +83,13 @@ function autodrop()
 
 function autoopen()
 		while _G.autoopen == true do
-			local args = {
-				[1] = "Regular"
-			}
-			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
-			local args = {
-				[1] = "Unreal"
-			}
-			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
-			local args = {
-				[1] = "Inferno"
-			}
-			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
-			local args = {
-				[1] = "Luxury"
-			}
-			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
-			local args = {
-				[1] = "Spectral"
-			}
-			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer(unpack(args))
+
+		("ReplicatedStorage").MysteryBox:InvokeServer("Unreal")
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Inferno")
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Luxury")
+		        game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Unreal")
+		        game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Regular")
+			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Spectral")
 			wait (.000000000000000000001)
 		 end
 		end
