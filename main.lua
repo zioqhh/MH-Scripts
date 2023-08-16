@@ -83,8 +83,6 @@ function autodrop()
 
 function autoopen()
 		while _G.autoopen == true do
-
-		("ReplicatedStorage").MysteryBox:InvokeServer("Unreal")
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Inferno")
 			game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Luxury")
 		        game:GetService("ReplicatedStorage").MysteryBox:InvokeServer("Unreal")
